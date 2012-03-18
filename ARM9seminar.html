@@ -1,0 +1,157 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>A seminar on ARM9TDMI | by Shrikrishna Holla</title>
+    
+    <meta name="description" content="impress.js is a presentation tool based on the power of CSS3 transforms and transitions in modern browsers and inspired by the idea behind prezi.com.">
+    <meta name="author" content="Shrikrishna Holla"/>
+
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans:regular,semibold,italic,italicsemibold|PT+Sans:400,700,400italic,700italic|PT+Serif:400,700,400italic,700italic" rel="stylesheet" />
+
+    
+    <link href="css/ARM9seminar.css" rel="stylesheet" />
+</head>
+<body>
+
+
+<div id="impress" class="impress-not-supported">
+
+    <div class="fallback-message">
+        <p>Your browser <b>doesn't support the features required</b> by impress.js, so you are presented with a simplified version of this presentation.</p>
+        <p>For the best experience please use the latest <b>Chrome</b> or <b>Safari</b> browser. Firefox 10 (to be released soon) will also handle it.</p>
+    </div>
+
+
+    <div id="ARM9TDMI" class="step slide" data-x="-1000" data-y="-1500">
+        <img src="images/ARM9TDMI_processor_core.jpeg" alt="The ARM9TDMI processor core" width = "750"/>
+        <p>The ARM9TDMI processor core</p>
+    </div>
+
+    
+    <div id="ARM9_organization" class="step slide" data-x="0" data-y="-1500">
+        <img src="images/ARM9_circuit.gif" alt="The ARM9TDMI processor organization" width = "775"/>
+        <p>The ARM9TDMI processor organization</p>
+    </div>
+
+    <div id="features" class="step" data-x="0" data-y="0" data-scale="4">
+        <span class="title">Features of ARM9TDMI processor</span>
+        <ul class="list">
+        <li>General purpose microprocessor belonging to v4T family of ARM processors</li>
+        <li>Supports both 32 bit ARM and 16 bit Thumb instruction set</li>
+        <li>Can operate in both Big-Endian and Little-Endian modes</li>
+        <li>Supports coprocessors: Communicates through a simple handshake protocol</li>
+        <li>Supports both bidirectional and unidirectional connection to external memory system</li>
+        <li>Implements a 5-stage pipelining for both instruction and data interfaces</li>
+        </ul>
+    </div>
+    
+    <div id="pipeline" class="step" data-x="850" data-y="3000" data-rotate="90" data-scale="5">
+        <img src="images/ARM9_pipeline.png" alt="ARM9TDMI's 5-stage pipeline" width = "775"/>
+        <p>ARM7TDMI and ARM9TDMI pipeline comparison</p>
+    </div>
+
+    <div id="harvard" class="step" data-x="3500" data-y="2100" data-rotate="180" data-scale="4">
+        <span class="title">Harvard Bus Architecture</span>
+        <h1>Nature:</h1>
+        <p><pre>        Uses separate instruction and data interfaces</pre></p>
+        <h1>Advantage:</h1>
+        <p><pre>        Allows concurrent instruction and data accesses and 
+        greatly reduces <strong>CPI</strong> of the processor</pre></p>
+    </div>
+
+    <div id="co-processor" class="step" data-x="3500" data-y="-850" data-rotate="270" data-scale="4">
+        <span class="title">Coprocessor Support</span>
+        <p><pre>        ARM9TDMI supports on-chip co-processors</pre></p>
+        <h1>Applications:</h1>
+        <ul class="list">
+           <li>Floating point operations</li>
+           <li>Digital signal processing</li>
+           <li>Other special purpose hardware acceleration requirements</li>
+        </ul>
+        <span class="footnote"><strong>Note:</strong>At the clock speed it supports, there is little possibility of off-ship co-processors being useful</span>
+    </div>
+
+    <div id="on-chip-debug" class="step" data-x="6700" data-y="-300" data-scale="4">
+        <span class="title">On-Chip Debug</span>
+        <p>The <strong>EmbeddedICE</strong> functionality gives the same system-level debug features as that on ARM7TDMI core with the following additional features:</p>
+        <ul class="list">
+        <li>Support for Hardware single-stepping</li>
+        <li>Breakpoints on exceptions</li>
+        <li>Base Restored Data Abort Model</li>
+        </ul>
+    </div>
+
+    <div id="BRDAM" class="step" data-x="6900" data-y="2000" data-rotate="20" data-scale="4">
+        <span class="title">Base Restored Data Abort Model</span>
+        <p>Affects only a very small section of operating system code, the data abort handler</p>
+        <q>It does <strong>NOT</strong> affect the user code</q>
+        <p>When data abort exception occurs, base register is restored by the processor hardware to the value contained by the register before the occurence of the exception</p>
+        <p><strong>Uses:</strong>Significantly simplifies the Software Data Abort Handler</p>
+    </div>
+
+    <div id="choice" class="step" data-x="6000" data-y="4200" data-scale="6">
+        <span class="title">Rationale in choosing ARM9TDMI over ARM7TDMI</span>
+        <ul class="list">
+        <li>Usage of separate instruction and data memory ports instead of single unified memory</li>
+        <li>Exploiting the higher clock-rate supported by ARM9's five-stage pipeline</li>
+        </ul>
+    </div>
+    
+    <div id="memory" class="step" data-x="-1500" data-y="4200" data-rotate="90" data-scale="6">
+        <span class="title">Ways of handling Memory Requirements</span>
+        <ul class="list">
+        <li>By incorporating separate data and instruction caches <strong>(Harvard Caches)</strong> and connecting them to a unified memory</li>
+        <li>Using an appropriate amount of separate, directly-addressed local instruction and data memory instead of caches</li>
+        </ul>
+    </div>
+    
+    <div id="technical" class="step" data-x="-600" data-y="5450" data-z="-30000" data-rotate="360" data-scale="0.5">
+        <span class="title">Technical Details of ARM9TDMI</span>
+        <ul class="list">
+        <li><strong>Process Technology:</strong> 0.25 &mu;</li>
+        <li><strong>Metal Layers:</strong> 3</li>
+        <li><strong>V<sub>dd</sub>:</strong> 2.5V</li>
+        <li><strong>Transistors:</strong> 111,000</li>
+        <li><strong>Core area:</strong> 2.1 mm<sup>2</sup></li>
+        <li><strong>Clock:</strong> 0 - 200 MHz</li>
+        <li><strong>Power:</strong> 150 mW</li>
+        </ul>
+    </div>
+    
+    <div id="ARM9ES" class="step" data-x="-600" data-y="5700" data-z="+30000" data-rotate="90" data-scale="0.5">
+        <span class="title">ARM9E-S</span>
+        <q>A Synthesizable version of ARM9TDMI core</q>
+        <hi>Features:</hi>
+        <ul class="list">
+        <li>Implements an extended version of ARM instruction set</li>
+        <li>Supports full ARM architecture version v5TE, including Signal Processing Instruction Set Extensions</li>
+        <li>30% larger than ARM9TDMI on the same process technology</li>
+        </ul>
+        <span class="footnote">Occupies 2.7 mm<sup>2</sup> on a 0.25 &mu; CMOS process</span>
+    </div>
+    
+    <div id="ThankYou" class="step" data-x="-600" data-y="3000" data-z="+30000" data-rotate="90" data-scale="0.5">
+        <span class="title">That will be all...</span>
+        <q>Thank you for bearing with me during this presentation.</q>
+        <p>You can find the sources of this presentation @ </p>
+        <span class="footnote"><strong>Sources:</strong>ARM System-on-Chip Architecture by Steve Furber and <br>ARM9TDMI Technical Reference Manual by ARM<sup>&reg;</sup> limited<br>This presentation is inspired from <a href="http://github.com/bartaz/impress.js">impress.js</a></span>
+    </div>
+
+
+    <div id="overview" class="step" data-x="3000" data-y="1500" data-scale="10">
+    </div>
+
+</div>
+
+
+<div class="hint">
+    <p>Use a spacebar or arrow keys to navigate</p>
+</div>
+
+
+<script src="js/ARM9seminar.js"></script>
+
+</body>
+</html>
